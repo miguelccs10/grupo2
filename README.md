@@ -21,6 +21,7 @@ Desenvolver uma lógica de back-end que impeça a sobreposição de reservas no 
 Integrar um módulo de confirmação de reservas com notificações para o usuário.
 Garantir a usabilidade do sistema com uma interface amigável e intuitiva para o front-end.
 Documentar o desenvolvimento do projeto, incluindo modelagem, implementação e testes.
+
 ---
 
 ### - Seção 3 - Divisão de tarefas:
