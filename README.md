@@ -1,7 +1,9 @@
 ## Por planejamento do projeto, espera-se que os seguintes objetivos sejam atingidos:
 
 ### - Seção 1 - Introdução:
-Este projeto tem como objetivo facilitar a reserva de horários em uma quadra de esportes, evitando conflitos de agendamento, como o aluguel duplicado do mesmo espaço e horário por diferentes usuários.
+A gestão manual de reservas de quadras esportivas frequentemente resulta em conflitos de agendamento, como a locação do mesmo espaço para diferentes usuários no mesmo horário. Esse problema causa transtornos. A ausência de um sistema automatizado e centralizado dificulta a organização, a transparência e a confiabilidade no processo de aluguel de quadras. Um sistema digitalizado pode resolver essas questões, oferecendo maior comodidade aos usuários e eficiência aos proprietários.
+O problema central é a falta de um sistema que gerencie de forma eficiente e confiável as reservas de quadras esportivas, garantindo que não haja sobreposição de horários e simplificando o processo de escolha e pagamento. Atualmente, os processos manuais ou parcialmente automatizados resultam em erros de agendamento, falta de clareza sobre horários disponíveis e dificuldade para os usuários confirmarem reservas.
+A motivação para o desenvolvimento deste sistema surge da necessidade de proporcionar uma solução prática e acessível para usuários que desejam alugar quadras esportivas, bem como para proprietários que buscam gerenciar seus espaços de forma eficiente. O sistema visa melhorar a experiência do usuário, reduzir erros operacionais e promover a automação do processo de reservas, contribuindo para a organização e a satisfação de todas as partes envolvidas.
 
 ---
 
