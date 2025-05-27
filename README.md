@@ -16,10 +16,10 @@ Facilitar marcar horário em uma quadra de esportes e evitar que duas pessoas al
 ### - Seção 3 - Divisão de tarefas:
 Tarefas (issues), atribuição de tarefa, responsabilidades, prazos, etc.
 
-- [Diniz](https://github.com/dinizanjos-username): Documentação.  
-- [Khalil](https://github.com/Khalielly-username): Back-end.  
-- [Heitor](https://github.com/Heitortxl-username): VAlidação e Testes.  
-- [Miguel](https://github.com/miguelccs10-username) e [Clara](https://github.com/claraleones-username): front-end / gerenciamento
+- [Diniz](https://github.com/dinizanjos): Documentação.  
+- [Khalil](https://github.com/Khalielly): Back-end.  
+- [Heitor](https://github.com/Heitortxl): VAlidação e Testes.  
+- [Miguel](https://github.com/miguelccs10) e [Clara](https://github.com/claraleones): front-end / gerenciamento
 
 ---
 
