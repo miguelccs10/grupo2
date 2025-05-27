@@ -8,11 +8,19 @@ A motivação para o desenvolvimento deste sistema surge da necessidade de propo
 ---
 
 ### - Seção 2 - Plano:
-Desenvolver um sistema para agendamento de quadras esportivas que permita aos usuários marcar horários disponíveis de forma prática, segura e sem sobreposição de horários.
 
 **Objetivo geral:**  
-Facilitar marcar horário em uma quadra de esportes e evitar que duas pessoas aluguem o mesmo espaço no mesmo período.
 
+Desenvolver um sistema de software que permita aos usuários cadastrarem-se, consultarem a disponibilidade de quadras esportivas, escolherem horários e tipos de quadras, visualizarem os valores associados e realizarem a reserva de forma automatizada, garantindo que não haja conflitos de agendamento.
+
+**Objetivos Específicos:** 
+
+Implementar um sistema de cadastro de usuários com informações básicas (nome e número de telefone) para autenticação e personalização.
+Criar uma interface que exiba os tipos de quadras disponíveis (ex.: vôlei, futebol, basquete), horários livres e os respectivos preços.
+Desenvolver uma lógica de back-end que impeça a sobreposição de reservas no mesmo horário e quadra.
+Integrar um módulo de confirmação de reservas com notificações para o usuário.
+Garantir a usabilidade do sistema com uma interface amigável e intuitiva para o front-end.
+Documentar o desenvolvimento do projeto, incluindo modelagem, implementação e testes.
 ---
 
 ### - Seção 3 - Divisão de tarefas:
