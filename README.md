@@ -157,9 +157,35 @@ Pagamento "*" -- "1" Reserva : referente a
 
 
 
-- Casos de uso;
+## - Diagrama de Casos de uso;
 
 Esse diagrama foi feito por: Ana Clara Leones
 Esta é apenas a primeira versão do diagrama
+
 ![Diagrama de caso de uso](https://www.plantuml.com/plantuml/png/RP0zJWCn48LxdsAqVOhyX185HNGqW7A0mPui8tazn3DEWpWCP-5YE8iHoqBvdhxtnduxDSnMXkWY7GrC87F_R10uapUMv1nwamntuZ58dYZxUCyiq9n7LgC1dRlaCFMHeBk9fIyK8H2S2eQCsi6h0oXA7hK2jsSspE0b7IERN43yodI02eVzLQKFt_GU0whb6hWVsngpROqpHgfPnYSsRZdb7aWfdojscbQjVbL9qXAjCe7rHH8_SUI0WHgy_lVk_Eh6lRcs3ImMr-EVVjPhrlQljNHjyQPNCxsUwOtRKGfbY9y0)
+
+```plantuml
+@startuml
+left to right direction
+
+actor Locador
+actor Locatário 
+actor Sistema
+
+rectangle "Aluguel de quadras" {
+  usecase "Evitar conflito de aluguel" as UC6
+  Usecase "Cadastrar Quadra" as UC5
+  usecase "Cadastrar o usuário" as UC1
+  usecase "Reservar quadra" as UC2
+  usecase "Consultar disponibilidade" as UC3
+  usecase "Cadastrar usuário" as UC4
+}
+Sistema --> UC6
+Locatário --> UC5
+Locatário --> UC1
+Locador --> UC2
+Locador --> UC3
+Locador --> UC4
+@enduml
+```
   
