@@ -188,4 +188,362 @@ Locador --> UC3
 Locador --> UC4
 @enduml
 ```
-  
+  ## - Modelagem inicial no BlueJ;
+Formatação inicial do Model, View e Controller:
+![Descrição da Captura 504](captura-de-Tela-504.png)
+Modelagem inicial do Model:
+![Descrição da Captura 505](captura-de-Tela-505.png)
+
+# - Classe Usuario;
+```
+package model;
+
+import com.j256.ormlite.table.DatabaseTable;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.DataType;
+
+@DatabaseTable(tableName = "usuarios")
+public class Usuario {
+    @DatabaseField(generatedId = true)
+    private int id;
+
+    @DatabaseField(dataType = DataType.STRING, canBeNull = false)
+    private String numero;
+
+    @DatabaseField(dataType = DataType.STRING, canBeNull = false)
+    private String nome;
+
+    @DatabaseField(dataType = DataType.STRING, canBeNull = false)
+    private String senha;
+
+    public Usuario() {
+        // Construtor padrão necessário para ORMLite
+    }
+
+    public Usuario(String numero, String nome, String senha) {
+        this.numero = numero;
+        this.nome = nome;
+        this.senha = senha;
+    }
+
+    // GET e SET methods
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNumero() {
+        return this.numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getSenha() {
+        return this.senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{id=" + id + ", numero='" + numero + "', nome='" + nome + "', senha='[PROTEGIDA]'}";
+    }
+}
+```
+# - Classe Locador;
+```
+package model;
+
+import com.j256.ormlite.table.DatabaseTable;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.DataType;
+
+@DatabaseTable(tableName = "locadores")
+public class Locador extends Usuario {
+    @DatabaseField(dataType = DataType.STRING)
+    private String telefone;
+    public Locador() {
+        // Construtor padrão necessário para ORMLite
+    }
+
+    public Locador(String numero, String nome, String senha, String telefone) {
+        super(numero, nome, senha);
+        this.telefone = telefone;
+    }
+
+    public String getTelefone() {
+        return this.telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    @Override
+    public String toString() {
+        return "Locador{id=" + getId() + ", numero='" + getNumero() + "', nome='" + getNome() + "', telefone='" + telefone + "', senha='[PROTEGIDA]'}";
+    }
+}
+```
+# - Classe Locatario;
+```
+  package model;
+
+import com.j256.ormlite.table.DatabaseTable;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.DataType;
+
+@DatabaseTable(tableName = "locatarios")
+public class Locatario extends Usuario {
+    @DatabaseField(dataType = DataType.STRING)
+    private String telefone;
+
+    @DatabaseField(dataType = DataType.STRING)
+    private String localizacaoQuadra;
+
+    @DatabaseField(dataType = DataType.STRING)
+    private String tipoQuadra;
+
+    @DatabaseField(dataType = DataType.STRING)
+    private String horariosDisponiveis;
+
+    public Locatario() {
+        // Construtor padrão necessário para ORMLite
+    }
+
+    public Locatario(String numero, String nome, String senha, String telefone, String localizacaoQuadra, String tipoQuadra, String horariosDisponiveis) {
+        super(numero, nome, senha);
+        this.telefone = telefone;
+        this.localizacaoQuadra = localizacaoQuadra;
+        this.tipoQuadra = tipoQuadra;
+        this.horariosDisponiveis = horariosDisponiveis;
+    }
+
+    public String getTelefone() {
+        return this.telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getLocalizacaoQuadra() {
+        return this.localizacaoQuadra;
+    }
+
+    public void setLocalizacaoQuadra(String localizacaoQuadra) {
+        this.localizacaoQuadra = localizacaoQuadra;
+    }
+
+    public String getTipoQuadra() {
+        return this.tipoQuadra;
+    }
+
+    public void setTipoQuadra(String tipoQuadra) {
+        this.tipoQuadra = tipoQuadra;
+    }
+
+    public String getHorariosDisponiveis() {
+        return this.horariosDisponiveis;
+    }
+
+    public void setHorariosDisponiveis(String horariosDisponiveis) {
+        this.horariosDisponiveis = horariosDisponiveis;
+    }
+
+    @Override
+    public String toString() {
+        return "Locatario{id=" + getId() + ", numero='" + getNumero() + "', nome='" + getNome() + "', telefone='" + telefone + "', localizacaoQuadra='" + localizacaoQuadra + "', tipoQuadra='" + tipoQuadra + "', horariosDisponiveis='" + horariosDisponiveis + "', senha='[PROTEGIDA]'}";
+    }
+}
+```
+# - UsuarioRepositorio;
+```
+package model;
+
+import com.j256.ormlite.dao.DaoManager;
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.table.TableUtils;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.ArrayList;
+
+public class UsuarioRepositorio {
+    private static Database database;
+    private static Dao<Usuario, Integer> daoUsuario;
+    private static Dao<Locador, Integer> daoLocador;
+    private static Dao<Locatario, Integer> daoLocatario;
+    private List<Usuario> loadedUsuarios;
+    private Usuario loadedUsuario;
+
+    public UsuarioRepositorio(Database database) {
+        UsuarioRepositorio.setDatabase(database);
+        loadedUsuarios = new ArrayList<Usuario>();
+    }
+
+    public static void setDatabase(Database database) {
+        UsuarioRepositorio.database = database;
+        try {
+            // Criar DAOs para cada entidade
+            daoUsuario = DaoManager.createDao(database.getConnection(), Usuario.class);
+            daoLocador = DaoManager.createDao(database.getConnection(), Locador.class);
+            daoLocatario = DaoManager.createDao(database.getConnection(), Locatario.class);
+            // Criar tabelas se não existirem
+            TableUtils.createTableIfNotExists(database.getConnection(), Usuario.class);
+            TableUtils.createTableIfNotExists(database.getConnection(), Locador.class);
+            TableUtils.createTableIfNotExists(database.getConnection(), Locatario.class);
+        } catch (SQLException e) {
+            System.out.println("Erro ao configurar o banco de dados: " + e.getMessage());
+        }
+    }
+
+    public Usuario create(Usuario usuario) {
+        int nrows = 0;
+        try {
+            if (usuario instanceof Locador) {
+                nrows = daoLocador.create((Locador) usuario);
+            } else if (usuario instanceof Locatario) {
+                nrows = daoLocatario.create((Locatario) usuario);
+            } else {
+                nrows = daoUsuario.create(usuario);
+            }
+            if (nrows == 0) {
+                throw new SQLException("Erro: objeto não salvo");
+            }
+            this.loadedUsuario = usuario;
+            loadedUsuarios.add(usuario);
+        } catch (SQLException e) {
+            System.out.println("Erro ao criar usuário: " + e.getMessage());
+        }
+        return usuario;
+    }
+
+    public void update(Usuario usuario) {
+        try {
+            if (usuario instanceof Locador) {
+                daoLocador.update((Locador) usuario);
+            } else if (usuario instanceof Locatario) {
+                daoLocatario.update((Locatario) usuario);
+            } else {
+                daoUsuario.update(usuario);
+            }
+            // Atualizar a lista carregada (se necessário)
+            int index = loadedUsuarios.indexOf(usuario);
+            if (index != -1) {
+                loadedUsuarios.set(index, usuario);
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao atualizar usuário: " + e.getMessage());
+        }
+    }
+
+    public void delete(Usuario usuario) {
+        try {
+            if (usuario instanceof Locador) {
+                daoLocador.delete((Locador) usuario);
+            } else if (usuario instanceof Locatario) {
+                daoLocatario.delete((Locatario) usuario);
+            } else {
+                daoUsuario.delete(usuario);
+            }
+            loadedUsuarios.remove(usuario);
+        } catch (SQLException e) {
+            System.out.println("Erro ao deletar usuário: " + e.getMessage());
+        }
+    }
+
+    public Usuario loadFromId(int id) {
+        try {
+            // Tentar carregar de cada DAO, retornando o primeiro encontrado
+            this.loadedUsuario = daoUsuario.queryForId(id);
+            if (this.loadedUsuario == null) {
+                this.loadedUsuario = daoLocador.queryForId(id);
+            }
+            if (this.loadedUsuario == null) {
+                this.loadedUsuario = daoLocatario.queryForId(id);
+            }
+            if (this.loadedUsuario != null) {
+                loadedUsuarios.add(this.loadedUsuario);
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao carregar usuário por ID: " + e.getMessage());
+        }
+        return this.loadedUsuario;
+    }
+
+    public List<Usuario> loadAll() {
+        try {
+            loadedUsuarios.clear();
+            loadedUsuarios.addAll(daoUsuario.queryForAll());
+            loadedUsuarios.addAll(daoLocador.queryForAll());
+            loadedUsuarios.addAll(daoLocatario.queryForAll());
+            if (!loadedUsuarios.isEmpty()) {
+                this.loadedUsuario = loadedUsuarios.get(0);
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao carregar todos os usuários: " + e.getMessage());
+        }
+        return loadedUsuarios;
+    }
+}
+```
+
+# - DataBase;
+```
+ package model;
+
+import java.sql.SQLException;
+import com.j256.ormlite.jdbc.JdbcConnectionSource;
+
+public class Database {
+    private String databaseName = null;
+    private JdbcConnectionSource connection = null;
+
+    public Database(String databaseName) {
+        this.databaseName = databaseName;
+    }
+
+    public JdbcConnectionSource getConnection() throws SQLException {
+        if (databaseName == null) {
+            throw new SQLException("database name is null");
+        }
+        if (connection == null) {
+            try {
+                connection = new JdbcConnectionSource("jdbc:sqlite:" + databaseName);
+            } catch (Exception e) {
+                System.err.println(e.getClass().getName() + ": " + e.getMessage());
+                System.exit(0);
+            }
+        }
+        return connection;
+    }
+
+    public void close() {
+        if (connection != null) {
+            try {
+                connection.close();
+                this.connection = null;
+            } catch (java.lang.Exception e) {
+                System.err.println(e);
+            }
+        }
+    }
+}
+```
+
+
