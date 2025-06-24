@@ -190,11 +190,11 @@ Locador --> UC4
 ```
   ## - Modelagem inicial no BlueJ;
 Formatação inicial do Model, View e Controller:
-![Descrição da Captura 504](captura-de-Tela-504.png)
+![Descrição da Captura 504](https://github.com/poo-ec-2025-1/grupo2/blob/main/Captura-de-Tela-504.png)
 Modelagem inicial do Model:
-![Descrição da Captura 505](captura-de-Tela-505.png)
+![Descrição da Captura 505](https://github.com/poo-ec-2025-1/grupo2/blob/main/Captura-de-Tela-505.png)
 
-# - Classe Usuario;
+### - Classe Usuario;
 ```
 package model;
 
@@ -265,7 +265,7 @@ public class Usuario {
     }
 }
 ```
-# - Classe Locador;
+### - Classe Locador;
 ```
 package model;
 
@@ -300,7 +300,7 @@ public class Locador extends Usuario {
     }
 }
 ```
-# - Classe Locatario;
+### - Classe Locatario;
 ```
   package model;
 
@@ -372,7 +372,7 @@ public class Locatario extends Usuario {
     }
 }
 ```
-# - UsuarioRepositorio;
+### - UsuarioRepositorio;
 ```
 package model;
 
@@ -503,7 +503,7 @@ public class UsuarioRepositorio {
 }
 ```
 
-# - DataBase;
+### - DataBase;
 ```
  package model;
 
