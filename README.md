@@ -190,6 +190,10 @@ Locador --> UC4
 ```
 ## - Primeiros esboços das telas;
 ![cadastrodousuario](https://github.com/poo-ec-2025-1/grupo2/blob/main/CapturTela509.png)
+![alugueldequadras](https://github.com/poo-ec-2025-1/grupo2/blob/main/Tela%20Aluguel%20de%20quadras.png)
+![alugueldequadras2](https://github.com/poo-ec-2025-1/grupo2/blob/main/Tela%20Aluguel%20de%20quadras%20(2).png)
+![alugueldequadras3](https://github.com/poo-ec-2025-1/grupo2/blob/main/Tela%20Aluguel%20de%20quadras%20(3).png)
+
 ## - Modelagem inicial no BlueJ;
 Formatação inicial do Model, View e Controller:
 ![ModelagemBlueJ](https://github.com/poo-ec-2025-1/grupo2/blob/main/Captura-de-Tela-504.png)
