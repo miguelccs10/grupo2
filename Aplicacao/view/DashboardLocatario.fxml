@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardLocatarioController">
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="60.0" spacing="20.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Dashboard do Locatário">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+                <HBox HBox.hgrow="ALWAYS" />
+                <Label fx:id="lblUsuario" text="Nome do Usuário" />
+                <Label fx:id="lblTipoUsuario" text="(Locatário)" />
+                <Button onAction="#handleSair" text="Sair" />
+            </children>
+            <padding>
+                <Insets left="20.0" right="20.0" />
+            </padding>
+        </HBox>
+    </top>
+    <center>
+        <VBox alignment="CENTER" spacing="20.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Quadras Disponíveis para Aluguel" />
+                <ScrollPane fitToWidth="true" prefHeight="300.0">
+                    <content>
+                        <VBox fx:id="containerQuadras" spacing="10.0">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                    </content>
+                </ScrollPane>
+                <Button onAction="#handleNovaQuadra" text="Adicionar Nova Quadra (simulação)" />
+            </children>
+        </VBox>
+    </center>
+</BorderPane>
