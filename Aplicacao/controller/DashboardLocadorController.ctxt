@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=DashboardLocadorController
+comment1.params=nome\ tipo
+comment1.target=void\ setUsuario(java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=void\ atualizarDadosUsuario()
+comment3.params=
+comment3.target=void\ handleSair()
+comment4.params=
+comment4.target=void\ handleAtualizar()
+comment5.params=
+comment5.target=void\ handleAlugar()
+comment6.params=
+comment6.target=void\ voltarParaLogin()
+numComments=7

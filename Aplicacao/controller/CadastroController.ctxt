@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=CadastroController
+comment1.params=
+comment1.target=void\ initialize()
+comment2.params=
+comment2.target=void\ handleCadastrar()
+comment3.params=
+comment3.target=void\ handleCancelar()
+comment4.params=
+comment4.target=boolean\ validarCampos()
+comment5.params=
+comment5.target=void\ cadastrarLocador()
+comment6.params=
+comment6.target=void\ cadastrarLocatario()
+comment7.params=mensagem
+comment7.target=void\ mostrarErro(java.lang.String)
+comment8.params=
+comment8.target=void\ mostrarSucesso()
+comment9.params=
+comment9.target=void\ fecharTela()
+numComments=10

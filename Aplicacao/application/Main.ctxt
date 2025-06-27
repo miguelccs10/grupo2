@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Main
+comment1.params=primaryStage
+comment1.target=void\ start(javafx.stage.Stage)
+comment2.params=
+comment2.target=void\ stop()
+comment3.params=
+comment3.target=model.Database\ getDatabase()
+comment4.params=
+comment4.target=model.UsuarioRepositorio\ getUsuarioRepositorio()
+comment5.params=args
+comment5.target=void\ main(java.lang.String[])
+numComments=6

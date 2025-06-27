@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=DashboardLocatarioController
+comment1.params=nome\ tipo
+comment1.target=void\ setUsuario(java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=void\ atualizarDadosUsuario()
+comment3.params=
+comment3.target=void\ carregarQuadras()
+comment4.params=nome\ tipo\ horarios
+comment4.target=void\ adicionarQuadraFicticia(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment5.params=
+comment5.target=void\ handleSair()
+comment6.params=
+comment6.target=void\ handleNovaQuadra()
+comment7.params=
+comment7.target=void\ voltarParaLogin()
+comment8.params=
+comment8.target=void\ abrirFormularioNovaQuadra()
+numComments=9
