@@ -1,17 +1,15 @@
-## Por planejamento do projeto, espera-se que os seguintes objetivos sejam atingidos:
+# APP para aluguel de quadras de esportes
 
-### - Seção 1 - Introdução:
-A gestão manual de reservas de quadras esportivas frequentemente resulta em conflitos de agendamento, como a locação do mesmo espaço para diferentes usuários no mesmo horário. Esse problema causa transtornos. A ausência de um sistema automatizado e centralizado dificulta a organização, a transparência e a confiabilidade no processo de aluguel de quadras. Um sistema digitalizado pode resolver essas questões, oferecendo maior comodidade aos usuários e eficiência aos proprietários.
-O problema central é a falta de um sistema que gerencie de forma eficiente e confiável as reservas de quadras esportivas, garantindo que não haja sobreposição de horários e simplificando o processo de escolha e pagamento. Atualmente, os processos manuais ou parcialmente automatizados resultam em erros de agendamento, falta de clareza sobre horários disponíveis e dificuldade para os usuários confirmarem reservas.
+## Motivação
 A motivação para o desenvolvimento deste sistema surge da necessidade de proporcionar uma solução prática e acessível para usuários que desejam alugar quadras esportivas, bem como para proprietários que buscam gerenciar seus espaços de forma eficiente. O sistema visa melhorar a experiência do usuário, reduzir erros operacionais e promover a automação do processo de reservas, contribuindo para a organização e a satisfação de todas as partes envolvidas.
 
 ---
 
-### - Seção 2 - Plano:
+### Plano de desenvolvimento:
 
 **Objetivo geral:**  
 
-Desenvolver um sistema de software que permita aos usuários cadastrarem-se, consultarem a disponibilidade de quadras esportivas, escolherem horários e tipos de quadras, visualizarem os valores associados e realizarem a reserva de forma automatizada, garantindo que não haja conflitos de agendamento.
+Desenvolver um sistema de software que permita aos usuários cadastrarem-se, consultarem a disponibilidade de quadras esportivas, escolherem horários e tipos de quadras, visualizarem os valores associados e realizarem a reserva de forma automatizada, eficiente e confiável, garantindo que não haja sobreposição de horários e simplificando o processo de escolha.
 
 **Objetivos Específicos:** 
 
@@ -24,17 +22,16 @@ Documentar o desenvolvimento do projeto, incluindo modelagem, implementação e 
 
 ---
 
-### - Seção 3 - Divisão de tarefas:
-Tarefas (issues), atribuição de tarefa, responsabilidades, prazos, etc.
+### Membros da equipe:
 
 - [Diniz](https://github.com/dinizanjos): Documentação.  
 - [Khalil](https://github.com/Khalielly): Back-end.  
-- [Heitor](https://github.com/Heitortxl): VAlidação e Testes.  
+- [Heitor](https://github.com/Heitortxl): Validação e Testes.  
 - [Miguel](https://github.com/miguelccs10) e [Clara](https://github.com/claraleones): front-end / gerenciamento
 
 ---
 
-### - Seção 4 - Modelagem inicial:
+### Modelagem inicial:
 A modelagem do sistema será composta por:
 
 ## - Diagramas de classes
@@ -189,16 +186,16 @@ Locador --> UC4
 @enduml
 ```
 ## - Primeiros esboços das telas;
-![cadastrodousuario](https://github.com/poo-ec-2025-1/grupo2/blob/main/CapturTela509.png)
-![alugueldequadras](https://github.com/poo-ec-2025-1/grupo2/blob/main/Tela%20Aluguel%20de%20quadras.png)
-![alugueldequadras2](https://github.com/poo-ec-2025-1/grupo2/blob/main/Tela%20Aluguel%20de%20quadras%20(2).png)
-![alugueldequadras3](https://github.com/poo-ec-2025-1/grupo2/blob/main/Tela%20Aluguel%20de%20quadras%20(3).png)
+![cadastrodousuario](docs/img_Readme/Tela_deCadastro.png)
+![alugueldequadras](docs/img_Readme/Tela%20Aluguel%20de%20quadras.png)
+![alugueldequadras2](docs/img_Readme/Tela%20Aluguel%20de%20quadras%20(2).png)
+![alugueldequadras3](docs/img_Readme/Tela%20Aluguel%20de%20quadras%20(3).png)
 
 ## - Modelagem inicial no BlueJ;
 Formatação inicial do Model, View e Controller:
-![ModelagemBlueJ](https://github.com/poo-ec-2025-1/grupo2/blob/main/Captura-de-Tela-504.png)
+![ModelagemBlueJ](docs/img_Readme/Tela_MVC.png)
 Modelagem inicial do Model:
-![ModelagemBlueJ](https://github.com/poo-ec-2025-1/grupo2/blob/main/Captura-de-Tela-505.png)
+![ModelagemBlueJ](docs/img_Readme/Tela_BlueJ_Classes.png)
 
 ### - Classe Usuario;
 ```
