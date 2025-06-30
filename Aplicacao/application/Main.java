@@ -7,17 +7,20 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.Database;
 import model.UsuarioRepositorio;
+import model.ReservaRepositorio;
 
 public class Main extends Application {
     
     private static Database database;
     private static UsuarioRepositorio usuarioRepositorio;
+    private static ReservaRepositorio reservaRepositorio;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Inicializar banco de dados
         database = new Database("quadras.db");
         usuarioRepositorio = new UsuarioRepositorio(database);
+        reservaRepositorio = new ReservaRepositorio(database);
         
         Parent root = FXMLLoader.load(getClass().getResource("/view/Login.fxml"));
         primaryStage.setTitle("Sistema de Aluguel de Quadras");
@@ -42,6 +45,10 @@ public class Main extends Application {
     public static UsuarioRepositorio getUsuarioRepositorio() {
         return usuarioRepositorio;
     }
+
+    public static ReservaRepositorio getReservaRepositorio() { 
+            return reservaRepositorio;
+        }
 
     public static void main(String[] args) {
         launch(args);
