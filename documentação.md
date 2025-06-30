@@ -139,3 +139,11 @@ Clique em "Sair" para voltar ao login.
 O sistema de locação de quadras esportivas, desenvolvido em Java com o padrão MVC, ORMLite para persistência em SQLite e JavaFX para a interface gráfica, implementa com sucesso as funcionalidades de cadastro e autenticação de usuários (Locador e Locatário), além da visualização de quadras com dados fictícios. A aplicação demonstra a aplicação dos princípios de Programação Orientada a Objetos, como herança, encapsulamento, polimorfismo e abstração, e estabelece uma base sólida para futuras expansões. A estrutura modular e os diagramas UML fornecem uma visão clara do projeto, garantindo organização e facilitando a manutenção. Apesar de algumas funcionalidades, como gerenciamento de quadras e reservas, ainda estarem em desenvolvimento, o sistema atual atende aos requisitos iniciais de autenticação e gerenciamento de usuários, representando um avanço significativo no objetivo de facilitar a locação de quadras esportivas.
 
 ## 11. Proximos passos
+
+-Implementar DatePicker para seleção de horários
+- Adicionar componente de upload de imagens para quadras
+- Desenvolver sistema de filtros para busca
+- Implementar carregamento assíncrono de dados
+- Adicionar animações entre transições de tela
+
+
