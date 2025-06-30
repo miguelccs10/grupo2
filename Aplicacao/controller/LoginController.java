@@ -1,85 +1,76 @@
 package controller;
 
+import application.Main;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.stage.Stage;
-import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import java.io.IOException;
-import model.Usuario;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import model.Locador;
 import model.Locatario;
+import model.Usuario;
 import model.UsuarioRepositorio;
-import application.Main;
+
+import java.io.IOException;
 
 public class LoginController {
 
     @FXML private TextField txtNumero;
     @FXML private PasswordField txtSenha;
-    
-    private UsuarioRepositorio repositorio = Main.getUsuarioRepositorio();
+
+    private final UsuarioRepositorio repositorio = Main.getUsuarioRepositorio();
 
     @FXML
-    private void handleLogin() throws IOException {
-        String numero = txtNumero.getText().trim();
+    private void handleLogin() {
+        String numero = txtNumero.getText();
         String senha = txtSenha.getText();
-        
-        if (numero.isEmpty() || senha.isEmpty()) {
-            mostrarErro("Preencha todos os campos!");
-            return;
-        }
-        
-        if (repositorio.autenticar(numero, senha)) {
-            abrirDashboard(numero);
-        } else {
-            mostrarErro("Credenciais inválidas!");
-        }
-    }
 
-    @FXML
-    private void handleCadastro() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/view/Cadastro.fxml"));
-        Stage stage = (Stage) txtNumero.getScene().getWindow();
-        stage.setScene(new Scene(root));
-    }
-    
-    private void abrirDashboard(String numeroUsuario) throws IOException {
         try {
-            Usuario usuario = repositorio.buscarPorNumero(numeroUsuario);
-            FXMLLoader loader;
-            
-            if (usuario instanceof Locador) {
-                loader = new FXMLLoader(getClass().getResource("/view/DashboardLocador.fxml"));
-                Parent root = loader.load();
-                DashboardLocadorController controller = loader.getController();
-                controller.setUsuario(usuario.getNome(), "Locador");
-                
-                Stage stage = (Stage) txtNumero.getScene().getWindow();
-                stage.setScene(new Scene(root));
-            } else if (usuario instanceof Locatario) {
-                loader = new FXMLLoader(getClass().getResource("/view/DashboardLocatario.fxml"));
-                Parent root = loader.load();
-                DashboardLocatarioController controller = loader.getController();
-                controller.setUsuario(usuario.getNome(), "Locatário", (Locatario) usuario);
-                
-                Stage stage = (Stage) txtNumero.getScene().getWindow();
-                stage.setScene(new Scene(root));
+            Usuario usuario = repositorio.autenticar(numero, senha);
+            if (usuario != null) {
+                abrirDashboard(usuario);
             } else {
-                 mostrarErro("Tipo de usuário desconhecido.");
+                mostrarAlerta("Erro de Login", "Usuário ou senha inválidos.");
             }
         } catch (Exception e) {
+            mostrarAlerta("Erro de Banco de Dados", "Ocorreu um erro ao tentar autenticar: " + e.getMessage());
             e.printStackTrace();
-            mostrarErro("Erro ao carregar o dashboard: " + e.getMessage());
         }
     }
 
-    private void mostrarErro(String mensagem) {
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Erro de Login");
+    // Método para o botão "Cadastre-se"
+    @FXML
+    private void abrirTelaCadastro() throws IOException {
+        Stage stage = (Stage) txtNumero.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/view/Cadastro.fxml"));
+        stage.setScene(new Scene(root));
+    }
+
+    private void abrirDashboard(Usuario usuario) throws IOException {
+        FXMLLoader loader;
+        Stage stage = (Stage) txtNumero.getScene().getWindow();
+
+        if (usuario instanceof Locador) {
+            loader = new FXMLLoader(getClass().getResource("/view/DashboardLocador.fxml"));
+            Parent root = loader.load();
+            DashboardLocadorController controller = loader.getController();
+            controller.setLocador((Locador) usuario);
+            stage.setScene(new Scene(root));
+        } else if (usuario instanceof Locatario) {
+            loader = new FXMLLoader(getClass().getResource("/view/DashboardLocatario.fxml"));
+            Parent root = loader.load();
+            DashboardLocatarioController controller = loader.getController();
+            controller.setUsuario((Locatario) usuario);
+            stage.setScene(new Scene(root));
+        }
+    }
+
+    private void mostrarAlerta(String titulo, String mensagem) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(titulo);
         alert.setHeaderText(null);
         alert.setContentText(mensagem);
         alert.showAndWait();

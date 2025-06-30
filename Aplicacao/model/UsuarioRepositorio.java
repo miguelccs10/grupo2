@@ -2,82 +2,59 @@ package model;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
-import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.table.TableUtils;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.ArrayList;
 
 public class UsuarioRepositorio {
-    private static Database database;
-    private static Dao<Usuario, Integer> daoUsuario;
-    private static Dao<Locador, Integer> daoLocador;
-    private static Dao<Locatario, Integer> daoLocatario;
-    
-    public UsuarioRepositorio(Database database) {
-        UsuarioRepositorio.setDatabase(database);
-    }
 
-    public static void setDatabase(Database database) {
-        UsuarioRepositorio.database = database;
+    private Dao<Locador, Integer> locadorDao;
+    private Dao<Locatario, Integer> locatarioDao;
+
+    public UsuarioRepositorio(Database database) {
         try {
-            // Criar DAOs para cada entidade
-            daoUsuario = DaoManager.createDao(database.getConnection(), Usuario.class);
-            daoLocador = DaoManager.createDao(database.getConnection(), Locador.class);
-            daoLocatario = DaoManager.createDao(database.getConnection(), Locatario.class);
-            
-            // Criar tabelas se não existirem
-            TableUtils.createTableIfNotExists(database.getConnection(), Usuario.class);
+            // Inicializa os DAOs para Locador e Locatario
+            locadorDao = DaoManager.createDao(database.getConnection(), Locador.class);
+            locatarioDao = DaoManager.createDao(database.getConnection(), Locatario.class);
+
+            // Cria as tabelas no banco de dados se elas não existirem
             TableUtils.createTableIfNotExists(database.getConnection(), Locador.class);
             TableUtils.createTableIfNotExists(database.getConnection(), Locatario.class);
         } catch (SQLException e) {
-            System.err.println("Erro ao configurar o banco de dados: " + e.getMessage());
+            System.err.println("Erro ao inicializar repositório de usuários: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
-    public Usuario create(Usuario usuario) throws SQLException {
+    /**
+     * Salva um novo usuário (Locador ou Locatario) no banco de dados.
+     */
+    public void create(Usuario usuario) throws SQLException {
         if (usuario instanceof Locador) {
-            daoLocador.create((Locador) usuario);
-            return usuario;
+            locadorDao.create((Locador) usuario);
         } else if (usuario instanceof Locatario) {
-            daoLocatario.create((Locatario) usuario);
-            return usuario;
-        } else {
-            daoUsuario.create(usuario);
-            return usuario;
+            locatarioDao.create((Locatario) usuario);
         }
     }
 
-    // Método para buscar usuário por número (CPF/telefone)
-    public Usuario buscarPorNumero(String numero) throws SQLException {
-        // Buscar em usuários comuns
-        QueryBuilder<Usuario, Integer> usuarioQB = daoUsuario.queryBuilder();
-        usuarioQB.where().eq("numero", numero);
-        Usuario usuario = usuarioQB.queryForFirst();
+    /**
+     * Autentica um usuário pelo número e senha.
+     * @return O objeto Usuario (Locador ou Locatario) se a autenticação for bem-sucedida, ou null caso contrário.
+     */
+    public Usuario autenticar(String numero, String senha) throws SQLException {
+        // Tenta encontrar um locador com o número e senha correspondentes
+        Locador locador = locadorDao.queryBuilder().where()
+                .eq("numero", numero).and().eq("senha", senha)
+                .queryForFirst();
         
-        if (usuario != null) return usuario;
-        
-        // Buscar em locadores
-        QueryBuilder<Locador, Integer> locadorQB = daoLocador.queryBuilder();
-        locadorQB.where().eq("numero", numero);
-        usuario = locadorQB.queryForFirst();
-        
-        if (usuario != null) return usuario;
-        
-        // Buscar em locatários
-        QueryBuilder<Locatario, Integer> locatarioQB = daoLocatario.queryBuilder();
-        locatarioQB.where().eq("numero", numero);
-        return locatarioQB.queryForFirst();
-    }
-    
-    // Método para autenticação
-    public boolean autenticar(String numero, String senha) {
-        try {
-            Usuario usuario = buscarPorNumero(numero);
-            return usuario != null && usuario.getSenha().equals(senha);
-        } catch (SQLException e) {
-            System.err.println("Erro na autenticação: " + e.getMessage());
-            return false;
+        if (locador != null) {
+            return locador; // Se encontrou um locador, retorna ele
         }
+
+        // Se não encontrou um locador, tenta encontrar um locatário
+        Locatario locatario = locatarioDao.queryBuilder().where()
+                .eq("numero", numero).and().eq("senha", senha)
+                .queryForFirst();
+        
+        return locatario; // Retorna o locatário (ou null se não encontrou)
     }
 }
