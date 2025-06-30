@@ -46,26 +46,41 @@ Este projeto implementa um sistema de gerenciamento de aluguel de quadras esport
 
 ## 6. Implementação das Classes
 
--Model
+### 6.1 Model
+
 - Usuario: Classe base que representa usuários, mapeada para a tabela usuarios com atributos id, numero, nome e senha.
 - Locador: Herda de Usuario, mapeada para locadores, com atributo adicional telefone.
 - Locatario: Herda de Usuario, mapeada para locatarios, com atributos adicionais telefone, localizacaoQuadra, tipoQuadra e horariosDisponiveis (temporários, a serem movidos para Quadra e Horario).
 - Database: Gerencia a conexão com o banco SQLite usando ORMLite.
 - UsuarioRepositorio: Realiza operações CRUD (atualmente implementa create, buscarPorNumero, autenticar; métodos update, delete, loadFromId, loadAll estão planejados).
 
--Controller
+### 6.2 Controller
+
 - CadastroController: Gerencia o cadastro de usuários, com validação condicional de campos para locatários.
 - DashboardLocadorController: Exibe informações do locador (nome, tipo); funcionalidades de atualização e aluguel são placeholders.
 - DashboardLocatarioController: Exibe quadras fictícias em um VBox.
 - LoginController: Controla autenticação e navegação para cadastro ou dashboards.
 
--View
+### 6.3 View
+
 - TableView: Listagem de informações (Locador, vazio).
 - ComboBox: Seleção de tipo de quadra (Locatário).
 - RadioButton: Seleção de tipo de usuário (Cadastro).
 - VBox: Container dinâmico (Locatário).
 - Label: Exibição de informações (Dashboards).
 - Alert: Feedback ao usuário (Erro, Sucesso, Informação).
+- 4 controladores implementados.
+- 4 telas FXML implementadas.
+- 15+ componentes JavaFX utilizados.
+- 3 tipos de alertas (Erro, Sucesso, Informação).
+
+### 6.4 Padroes de implementação
+
+- Visibilidade Condicional: Campos específicos para locatários (localização, tipo de quadra, horários) são exibidos dinamicamente no CadastroController com base na seleção do tipo de usuário.
+- Injeção de Dados: Dados do usuário (nome, tipo) são passados entre controladores (ex.: de LoginController para DashboardLocadorController ou DashboardLocatarioController) via métodos públicos.
+- Navegação Unidirecional: Todas as telas retornam à tela de login via botão "Sair".
+- Ações Mapeadas: Eventos (ex.: cliques em botões) são declarados no FXML e implementados nos controladores Java.
+- Validações: Verificação de campos obrigatórios no LoginController e validação condicional no CadastroController para campos específicos de locatários.
 
 ## 7. Testes e Processo de Desenvolvimento
 
@@ -148,11 +163,19 @@ Visualize quadras disponíveis em um painel rolável.
 Use o botão "Adicionar Nova Quadra" para abrir um formulário (em desenvolvimento).
 Clique em "Sair" para voltar ao login.
 
-## 10. Conclusão
+## 10. Fluxo de navegação
+
+O sistema segue uma navegação unidirecional:
+- O usuário acessa a tela de login (login.fxml).
+- Após autenticação, é redirecionado para o dashboard correspondente (dashboard_locador.fxml ou dashboard_locatario.fxml).
+- Nos dashboards, o botão "Sair" retorna à tela de login.
+- A tela de cadastro (cadastro.fxml) é acessível a partir do login.
+
+## 11. Conclusão
 
 O sistema de locação de quadras esportivas, desenvolvido em Java com o padrão MVC, ORMLite para persistência em SQLite e JavaFX para a interface gráfica, implementa com sucesso as funcionalidades de cadastro e autenticação de usuários (Locador e Locatário), além da visualização de quadras com dados fictícios. A aplicação demonstra a aplicação dos princípios de Programação Orientada a Objetos, como herança, encapsulamento, polimorfismo e abstração, e estabelece uma base sólida para futuras expansões. A estrutura modular e os diagramas UML fornecem uma visão clara do projeto, garantindo organização e facilitando a manutenção. Apesar de algumas funcionalidades, como gerenciamento de quadras e reservas, ainda estarem em desenvolvimento, o sistema atual atende aos requisitos iniciais de autenticação e gerenciamento de usuários, representando um avanço significativo no objetivo de facilitar a locação de quadras esportivas.
 
-## 11. Proximos passos
+## 12. Proximos passos
 
 - Implementar DatePicker para seleção de horários
 - Adicionar componente de upload de imagens para quadras
