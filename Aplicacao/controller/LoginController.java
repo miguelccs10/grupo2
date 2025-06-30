@@ -64,7 +64,7 @@ public class LoginController {
                 loader = new FXMLLoader(getClass().getResource("/view/DashboardLocatario.fxml"));
                 Parent root = loader.load();
                 DashboardLocatarioController controller = loader.getController();
-                controller.setUsuario(usuario.getNome(), "Locatário");
+                controller.setUsuario(usuario.getNome(), "Locatário", (Locatario) usuario);
                 
                 Stage stage = (Stage) txtNumero.getScene().getWindow();
                 stage.setScene(new Scene(root));
