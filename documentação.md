@@ -88,12 +88,12 @@ O diagrama de casos de uso representa as interações dos atores (Locador, Locat
 
 O diagrama de casos de uso ilustra as interações principais entre os atores (Locador, Locatário e Sistema) e o sistema de locação de quadras esportivas, destacando as funcionalidades disponíveis e planejadas:
 
--- Atores:
+-Atores:
 - Locador: Usuário que cadastra e gerencia quadras esportivas, consultando reservas feitas por locatários.
 - Locatário: Usuário que busca quadras disponíveis, realiza reservas e pode cancelá-las.
 - Sistema: Responsável por validações automáticas, como autenticação, validação de dados e verificação de disponibilidade.
 
--- Casos de Uso:
+-Casos de Uso:
 - Fazer Login: Ambos os atores (Locador e Locatário) autenticam-se no sistema usando número (CPF/telefone) e senha. Este caso de uso se estende a "Validar Credenciais", onde o Sistema verifica as credenciais no banco de dados via UsuarioRepositorio.
 - Cadastrar Usuário: Locadores e Locatários podem se cadastrar, fornecendo número, nome, senha, telefone e, para locatários, informações temporárias de quadra (localização, tipo, horários). Este caso se estende a "Validar Dados", onde o Sistema verifica se os campos obrigatórios estão preenchidos.
 - Cadastrar Quadra (em desenvolvimento): Permite ao Locador cadastrar uma quadra esportiva, incluindo localização e tipo. Esta funcionalidade está planejada, mas não implementada (ausência da classe Quadra e do formulário NovaQuadra.fxml).
@@ -102,7 +102,7 @@ O diagrama de casos de uso ilustra as interações principais entre os atores (L
 - Realizar Reserva (em desenvolvimento): Locatários selecionam uma quadra, data e horário para reservar. Este caso se estende a "Verificar Disponibilidade", onde o Sistema valida conflitos de horário. Ainda não implementado.
 - Cancelar Reserva (em desenvolvimento): Locatários podem cancelar reservas existentes. Depende da implementação da classe Reserva.
 
--- Extensões:
+-Extensões:
 - Validar Credenciais: O Sistema verifica as credenciais de login usando UsuarioRepositorio.autenticar.
 - Validar Dados: O Sistema valida os campos obrigatórios durante o cadastro, implementado em CadastroController.
 - Verificar Disponibilidade: O Sistema verifica se a quadra está disponível para reserva (planejado, mas não implementado).
@@ -140,7 +140,7 @@ O sistema de locação de quadras esportivas, desenvolvido em Java com o padrão
 
 ## 11. Proximos passos
 
--Implementar DatePicker para seleção de horários
+- Implementar DatePicker para seleção de horários
 - Adicionar componente de upload de imagens para quadras
 - Desenvolver sistema de filtros para busca
 - Implementar carregamento assíncrono de dados
