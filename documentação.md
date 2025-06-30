@@ -54,10 +54,18 @@ Este projeto implementa um sistema de gerenciamento de aluguel de quadras esport
 - UsuarioRepositorio: Realiza operações CRUD (atualmente implementa create, buscarPorNumero, autenticar; métodos update, delete, loadFromId, loadAll estão planejados).
 
 -Controller
-- CadastroController
-- DashboardLocadorController
-- DashboardLocatarioController
+- CadastroController: Gerencia o cadastro de usuários, com validação condicional de campos para locatários.
+- DashboardLocadorController: Exibe informações do locador (nome, tipo); funcionalidades de atualização e aluguel são placeholders.
+- DashboardLocatarioController: Exibe quadras fictícias em um VBox.
 - LoginController: Controla autenticação e navegação para cadastro ou dashboards.
+
+-View
+- TableView: Listagem de informações (Locador, vazio).
+- ComboBox: Seleção de tipo de quadra (Locatário).
+- RadioButton: Seleção de tipo de usuário (Cadastro).
+- VBox: Container dinâmico (Locatário).
+- Label: Exibição de informações (Dashboards).
+- Alert: Feedback ao usuário (Erro, Sucesso, Informação).
 
 ## 7. Testes e Processo de Desenvolvimento
 
