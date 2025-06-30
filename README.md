@@ -186,11 +186,12 @@ Locador --> UC4
 @enduml
 ```
 ## Segunda versão das telas:
-<img src="./docs/img_Readme/Login-v2.png" width="600"> 
-<img src="./docs/img_Readme/cadastro_locador-v2.png" width="600">
-<img src="./docs/img_Readme/cadastro_locatario-v2.png" width="600">
-<img src="./docs/img_Readme/dashboard_locador.png" width="600">
-<img src="./docs/img_Readme/dashboard_locatario.png" width="600">
+<img src="./docs/img_Readme/Login-v2.png" width="550">
+
+|       |       |
+|-------|-------|
+|<img src="./docs/img_Readme/cadastro_locador-v2.png" width="600">|<img src="./docs/img_Readme/cadastro_locatario-v2.png" width="600">|
+|<img src="./docs/img_Readme/dashboard_locador.png" width="600">|<img src="./docs/img_Readme/dashboard_locatario.png" width="600">|
 
 ---
 
