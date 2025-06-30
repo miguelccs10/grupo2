@@ -2,56 +2,53 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="600.0" spacing="15.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CadastroController">
-    <children>
-        <Label text="Cadastro de Usuário">
-            <font>
-                <Font name="System Bold" size="24.0" />
-            </font>
-        </Label>
-        <HBox alignment="CENTER" spacing="20.0">
-            <children>
-                <RadioButton fx:id="rbLocador" mnemonicParsing="false" selected="true" text="Sou Locador">
-                    <toggleGroup>
-                        <ToggleGroup fx:id="userType" />
-                    </toggleGroup>
-                </RadioButton>
-                <RadioButton fx:id="rbLocatario" mnemonicParsing="false" text="Sou Locatário" toggleGroup="$userType" />
-            </children>
-        </HBox>
-        <TextField fx:id="txtNumero" maxWidth="350.0" promptText="Número (CPF/Telefone)" />
-        <TextField fx:id="txtNome" maxWidth="350.0" promptText="Nome Completo" />
-        <TextField fx:id="txtTelefone" maxWidth="350.0" promptText="Telefone de Contato" />
-        <PasswordField fx:id="txtSenha" maxWidth="350.0" promptText="Senha" />
-        
-        <VBox fx:id="paneLocatario" alignment="CENTER" spacing="15.0" visible="false">
-            <children>
-                <Label text="Informações da Quadra (para Locatários)" />
-                <TextField fx:id="txtLocalizacao" maxWidth="350.0" promptText="Localização da Quadra" />
-                <ComboBox fx:id="cbTipoQuadra" prefWidth="350.0" promptText="Selecione o Tipo de Quadra" />
-                <TextArea fx:id="txtHorarios" maxWidth="350.0" prefHeight="100.0" promptText="Horários Disponíveis (ex: Seg-Sex 18h-22h)" />
-            </children>
-        </VBox>
-        
-        <HBox alignment="CENTER" spacing="20.0">
-            <children>
-                <Button fx:id="btnCadastrar" onAction="#handleCadastrar" prefWidth="120.0" text="Cadastrar" />
-                <Button fx:id="btnCancelar" onAction="#handleCancelar" prefWidth="120.0" text="Cancelar" />
-            </children>
-        </HBox>
-    </children>
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
+<VBox alignment="CENTER" prefHeight="450.0" prefWidth="400.0" spacing="20.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CadastroController">
+   <children>
+      <Label text="Cadastro de Usuário">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <GridPane hgap="10.0" maxWidth="350.0" vgap="10.0">
+         <children>
+            <Label text="Número de Usuário:" GridPane.rowIndex="0" />
+            <TextField fx:id="txtNumero" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Label text="Nome Completo:" GridPane.rowIndex="1" />
+            <TextField fx:id="txtNome" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Telefone:" GridPane.rowIndex="2" />
+            <TextField fx:id="txtTelefone" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+             <Label text="Senha:" GridPane.rowIndex="3" />
+            <PasswordField fx:id="txtSenha" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <HBox alignment="CENTER" spacing="20.0">
+         <children>
+            <RadioButton fx:id="rbLocatario" mnemonicParsing="false" selected="true" text="Quero Alugar (Locatário)">
+               <toggleGroup>
+                  <ToggleGroup fx:id="userTypeGroup" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="rbLocador" mnemonicParsing="false" text="Sou Dono (Locador)" toggleGroup="$userTypeGroup" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" spacing="20.0">
+         <children>
+            <Button onAction="#handleCadastrar" prefWidth="100.0" text="Cadastrar" />
+            <Button onAction="#handleCancelar" prefWidth="100.0" style="-fx-background-color: #f44336; -fx-text-fill: white;" text="Cancelar" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
 </VBox>

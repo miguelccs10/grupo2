@@ -1,125 +1,71 @@
 package controller;
 
+import application.Main;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Locador;
 import model.Locatario;
 import model.UsuarioRepositorio;
-import application.Main;
 import java.io.IOException;
-import java.sql.SQLException;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 
 public class CadastroController {
 
-    @FXML private RadioButton rbLocador;
-    @FXML private RadioButton rbLocatario;
     @FXML private TextField txtNumero;
     @FXML private TextField txtNome;
-    @FXML private TextField txtTelefone;
     @FXML private PasswordField txtSenha;
-    @FXML private VBox paneLocatario;
-    @FXML private TextField txtLocalizacao;
-    @FXML private ComboBox<String> cbTipoQuadra;
-    @FXML private TextArea txtHorarios;
-    @FXML private Button btnCadastrar;
+    @FXML private TextField txtTelefone;
+    @FXML private RadioButton rbLocador;
     
-    private UsuarioRepositorio repositorio = Main.getUsuarioRepositorio();
-
-    @FXML
-    private void initialize() {
-        cbTipoQuadra.getItems().addAll("Futebol", "Tênis", "Vôlei", "Basquete", "Poliesportiva");
-        
-        rbLocatario.selectedProperty().addListener((obs, oldVal, newVal) -> {
-            paneLocatario.setVisible(newVal);
-        });
-    }
+    private final UsuarioRepositorio repositorio = Main.getUsuarioRepositorio();
 
     @FXML
     private void handleCadastrar() {
-        if (validarCampos()) {
-            try {
-                if (rbLocador.isSelected()) {
-                    cadastrarLocador();
-                } else {
-                    cadastrarLocatario();
-                }
-                mostrarSucesso();
-                fecharTela();
-            } catch (Exception e) {
-                mostrarErro("Erro ao cadastrar usuário: " + e.getMessage());
-                e.printStackTrace();
+        if (!validarCampos()) return;
+
+        try {
+            if (rbLocador.isSelected()) {
+                Locador locador = new Locador(txtNumero.getText(), txtNome.getText(), txtSenha.getText(), txtTelefone.getText());
+                repositorio.create(locador);
+            } else { // Locatário
+                Locatario locatario = new Locatario(txtNumero.getText(), txtNome.getText(), txtSenha.getText(), txtTelefone.getText());
+                repositorio.create(locatario);
             }
+            mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso", "Usuário cadastrado com sucesso!");
+            voltarParaLogin();
+        } catch (Exception e) {
+            mostrarAlerta(Alert.AlertType.ERROR, "Erro", "Não foi possível cadastrar: " + e.getMessage());
         }
     }
-
+    
+    // ## MÉTODO ADICIONADO PARA CORRIGIR O ERRO ##
     @FXML
     private void handleCancelar() throws IOException {
-        fecharTela();
+        voltarParaLogin();
     }
 
     private boolean validarCampos() {
-        if (txtNumero.getText().isEmpty() || txtNome.getText().isEmpty() || txtSenha.getText().isEmpty()) {
-            mostrarErro("Campos 'Número', 'Nome' e 'Senha' são obrigatórios!");
+        if (txtNumero.getText().isEmpty() || txtNome.getText().isEmpty() || txtSenha.getText().isEmpty() || txtTelefone.getText().isEmpty()) {
+            mostrarAlerta(Alert.AlertType.WARNING, "Atenção", "Todos os campos são obrigatórios.");
             return false;
-        }
-        
-        if (rbLocatario.isSelected()) {
-            if (txtLocalizacao.getText().isEmpty() || cbTipoQuadra.getValue() == null) {
-                mostrarErro("Para locatário, 'Localização' e 'Tipo de Quadra' são obrigatórios!");
-                return false;
-            }
         }
         return true;
     }
 
-    private void cadastrarLocador() throws SQLException {
-        Locador locador = new Locador(
-            txtNumero.getText(),
-            txtNome.getText(),
-            txtSenha.getText(),
-            txtTelefone.getText()
-        );
-        repositorio.create(locador);
-    }
-
-    private void cadastrarLocatario() throws SQLException {
-        Locatario locatario = new Locatario(
-            txtNumero.getText(),
-            txtNome.getText(),
-            txtSenha.getText(),
-            txtTelefone.getText(),
-            txtLocalizacao.getText(),
-            cbTipoQuadra.getValue(),
-            txtHorarios.getText()
-        );
-        repositorio.create(locatario);
-    }
-
-    private void mostrarErro(String mensagem) {
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Erro no Cadastro");
-        alert.setHeaderText(null);
-        alert.setContentText(mensagem);
-        alert.showAndWait();
-    }
-
-    private void mostrarSucesso() {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Cadastro Concluído");
-        alert.setHeaderText(null);
-        alert.setContentText("Usuário cadastrado com sucesso!");
-        alert.showAndWait();
-    }
-    
-    private void fecharTela() throws IOException {
+    private void voltarParaLogin() throws IOException {
+        Stage stage = (Stage) txtNumero.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/view/Login.fxml"));
-        Stage stage = (Stage) btnCadastrar.getScene().getWindow();
         stage.setScene(new Scene(root));
+    }
+
+    private void mostrarAlerta(Alert.AlertType tipo, String titulo, String msg) {
+        Alert alert = new Alert(tipo);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(msg);
+        alert.showAndWait();
     }
 }

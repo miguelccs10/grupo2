@@ -8,17 +8,24 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" spacing="15.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
-      <Label text="Login no Sistema">
+      <Label text="Aluguel de Quadras">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="txtNumero" maxWidth="300.0" promptText="Número (CPF/Telefone)" />
-      <PasswordField fx:id="txtSenha" maxWidth="300.0" promptText="Senha" />
-      <Button fx:id="btnLogin" onAction="#handleLogin" prefWidth="150.0" text="Entrar" />
-      <Button fx:id="btnCadastro" onAction="#handleCadastro" prefWidth="150.0" text="Cadastrar-se" />
+      <VBox alignment="CENTER_LEFT" maxWidth="250.0" spacing="5.0">
+         <children>
+            <Label text="Usuário (Número):" />
+            <TextField fx:id="txtNumero" />
+            <Label text="Senha:" />
+            <PasswordField fx:id="txtSenha" />
+         </children>
+      </VBox>
+      <Button mnemonicParsing="false" onAction="#handleLogin" prefWidth="100.0" text="Entrar" />
+      <Label text="Não tem uma conta?" />
+      <Button mnemonicParsing="false" onAction="#abrirTelaCadastro" style="-fx-background-color: transparent; -fx-border-color: blue; -fx-cursor: hand;" text="Cadastre-se" />
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
