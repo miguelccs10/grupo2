@@ -1,12 +1,13 @@
 package controller;
 
+import model.Locatario;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
+import javafx.scene.Parent;;
 
 public class DashboardLocatarioController {
 
@@ -16,10 +17,12 @@ public class DashboardLocatarioController {
 
     private String usuarioLogado;
     private String tipoUsuario;
+    private Locatario locatarioLogado;
 
     public void setUsuario(String nome, String tipo) {
-        this.usuarioLogado = nome;
+        this.usuarioLogado = nome; 
         this.tipoUsuario = tipo;
+        this.locatarioLogado = locatario;  
         atualizarDadosUsuario();
         carregarQuadras();
     }
