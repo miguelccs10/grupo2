@@ -91,7 +91,7 @@ Este projeto implementa um sistema de gerenciamento de aluguel de quadras esport
 - Verificação de herança e polimorfismo no UsuarioRepositorio.
 - Autenticação de usuários via login.
 
-## 7.2 Processo de Desenvolvimento
+### 7.2 Processo de Desenvolvimento
 
 O desenvolvimento seguiu uma abordagem incremental:
 
