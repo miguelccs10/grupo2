@@ -1,12 +1,4 @@
-Compreendi perfeitamente! O objetivo é usar o texto original na íntegra, sem remover nenhuma palavra, mas organizá-lo dentro de uma estrutura mais profissional, com os elementos que você gostou no exemplo (índice, tabelas, seções retráteis, etc.).
-
-O texto que você escreveu é excelente e muito detalhado, ideal para um trabalho acadêmico. A formatação vai apenas torná-lo mais navegável e visualmente agradável.
-
-Aqui está a versão do seu README.md reestruturada, mantendo 100% do seu conteúdo original.
-
-README.md Reestruturado e Profissional
-Generated markdown
-# 💻 Sistema de Locação de Quadras Esportivas
+#  Sistema de Locação de Quadras Esportivas
 
 > Projeto que implementa um sistema de gerenciamento de aluguel de quadras esportivas, desenvolvido em Java com os princípios da Programação Orientada a Objetos (POO). Utiliza o framework ORMLite para persistência de dados em um banco SQLite e JavaFX para a interface gráfica, seguindo o padrão Model-View-Controller (MVC).
 
@@ -20,7 +12,7 @@ Generated markdown
 
 ---
 
-## 📋 Índice
+##  Índice
 
 1.  [Introdução](#1-introdução)
 2.  [Funcionalidades](#2-funcionalidades)
