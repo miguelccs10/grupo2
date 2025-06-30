@@ -92,6 +92,7 @@ O diagrama de casos de uso ilustra as interações principais entre os atores (L
 - Locador: Usuário que cadastra e gerencia quadras esportivas, consultando reservas feitas por locatários.
 - Locatário: Usuário que busca quadras disponíveis, realiza reservas e pode cancelá-las.
 - Sistema: Responsável por validações automáticas, como autenticação, validação de dados e verificação de disponibilidade.
+
 -- Casos de Uso:
 - Fazer Login: Ambos os atores (Locador e Locatário) autenticam-se no sistema usando número (CPF/telefone) e senha. Este caso de uso se estende a "Validar Credenciais", onde o Sistema verifica as credenciais no banco de dados via UsuarioRepositorio.
 - Cadastrar Usuário: Locadores e Locatários podem se cadastrar, fornecendo número, nome, senha, telefone e, para locatários, informações temporárias de quadra (localização, tipo, horários). Este caso se estende a "Validar Dados", onde o Sistema verifica se os campos obrigatórios estão preenchidos.
@@ -100,6 +101,7 @@ O diagrama de casos de uso ilustra as interações principais entre os atores (L
 - Visualizar Quadras Disponíveis: Locatários podem ver uma lista de quadras disponíveis, atualmente implementada com dados fictícios no DashboardLocatarioController.
 - Realizar Reserva (em desenvolvimento): Locatários selecionam uma quadra, data e horário para reservar. Este caso se estende a "Verificar Disponibilidade", onde o Sistema valida conflitos de horário. Ainda não implementado.
 - Cancelar Reserva (em desenvolvimento): Locatários podem cancelar reservas existentes. Depende da implementação da classe Reserva.
+
 -- Extensões:
 - Validar Credenciais: O Sistema verifica as credenciais de login usando UsuarioRepositorio.autenticar.
 - Validar Dados: O Sistema valida os campos obrigatórios durante o cadastro, implementado em CadastroController.
