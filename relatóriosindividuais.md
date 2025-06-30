@@ -12,11 +12,11 @@ Com base no escopo da documentação fornecida pelo Diniz, que demonstrava a vis
 
 Minhas contribuições, combinadas com o trabalho em equipe, resultaram em um sistema que atende aos requisitos iniciais de cadastro, autenticação e visualização de quadras fictícias, utilizando Java, JavaFX e ORMLite. A experiência reforçou a importância da colaboração e da aplicação dos princípios de Programação Orientada a Objetos, além de destacar a relevância de uma documentação clara para o sucesso do projeto.
 
-## Arthur
-
 ## Danielly
 
 ## Diniz
+
+## Heitor
 
 ## Miguel
 
