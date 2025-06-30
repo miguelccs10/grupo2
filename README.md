@@ -185,11 +185,15 @@ Locador --> UC3
 Locador --> UC4
 @enduml
 ```
-## - Primeiros esboços das telas;
-![cadastrodousuario](docs/img_Readme/Tela_deCadastro.png)
-![alugueldequadras](docs/img_Readme/Tela%20Aluguel%20de%20quadras.png)
-![alugueldequadras2](docs/img_Readme/Tela%20Aluguel%20de%20quadras%20(2).png)
-![alugueldequadras3](docs/img_Readme/Tela%20Aluguel%20de%20quadras%20(3).png)
+## Segunda versão das telas:
+<img src="./docs/img_Readme/Login-v2.png" width="550">
+
+|       |       |
+|-------|-------|
+|<img src="./docs/img_Readme/cadastro_locador-v2.png" width="600">|<img src="./docs/img_Readme/cadastro_locatario-v2.png" width="600">|
+|<img src="./docs/img_Readme/dashboard_locador.png" width="600">|<img src="./docs/img_Readme/dashboard_locatario.png" width="600">|
+
+---
 
 ## - Modelagem inicial no BlueJ;
 Formatação inicial do Model, View e Controller:
