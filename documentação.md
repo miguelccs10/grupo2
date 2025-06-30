@@ -15,27 +15,27 @@ Este projeto implementa um sistema de gerenciamento de aluguel de quadras esport
 
 - Linguagem: Java.
 - Framework de Persistência: ORMLite.
-Banco de Dados: SQLite.
-Interface Gráfica: JavaFX.
-Ferramentas: Maven, PlantUML, BlueJ.
+- Banco de Dados: SQLite.
+- Interface Gráfica: JavaFX.
+- Ferramentas: Maven, PlantUML, BlueJ.
 
 ## 4. Requisitos
 
 ### 4.1 Funcionais
 
-Cadastro de usuários (Locador e Locatário) com informações básicas (número, nome, senha, telefone) e, para locatários, dados de quadra (temporário).
-Autenticação de usuários via login.
-Visualização de quadras cadastradas (Locador) e disponíveis (Locatário).
-Cadastro de quadras esportivas (em desenvolvimento).
-Consulta de disponibilidade de quadras (em desenvolvimento).
-Realização e cancelamento de reservas (em desenvolvimento).
+- Cadastro de usuários (Locador e Locatário) com informações básicas (número, nome, senha, telefone) e, para locatários, dados de quadra (temporário).
+- Autenticação de usuários via login.
+- Visualização de quadras cadastradas (Locador) e disponíveis (Locatário).
+- Cadastro de quadras esportivas (em desenvolvimento).
+- Consulta de disponibilidade de quadras (em desenvolvimento).
+- Realização e cancelamento de reservas (em desenvolvimento).
 
 ### 4.2 Não Funcionais
 
-Código modular e reutilizável, seguindo o padrão MVC e os princípios de POO (encapsulamento, herança, polimorfismo, abstração).
-Persistência de dados com SQLite e ORMLite.
-Interface gráfica intuitiva com JavaFX.
-Documentação clara e organizada.
+- Código modular e reutilizável, seguindo o padrão MVC e os princípios de POO (encapsulamento, herança, polimorfismo, abstração).
+- Persistência de dados com SQLite e ORMLite.
+- Interface gráfica intuitiva com JavaFX.
+- Documentação clara e organizada.
 
 ## Conceitos de POO Aplicados
 
@@ -66,8 +66,8 @@ Documentação clara e organizada.
 
 O desenvolvimento seguiu uma abordagem incremental:
 
-Modelagem com diagramas UML para definir entidades e relações.
-Implementação das classes principais (Usuario, Locador, Locatario).
+- Modelagem com diagramas UML para definir entidades e relações.
+- Implementação das classes principais (Usuario, Locador, Locatario).
 Configuração da persistência com Database e UsuarioRepositorio.
 Desenvolvimento da interface JavaFX (view) e controladores (controller).
 Testes manuais de cadastro e autenticação.
