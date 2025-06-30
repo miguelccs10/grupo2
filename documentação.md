@@ -46,12 +46,18 @@ Este projeto implementa um sistema de gerenciamento de aluguel de quadras esport
 
 ## 6. Implementação das Classes
 
+-Model
 - Usuario: Classe base que representa usuários, mapeada para a tabela usuarios com atributos id, numero, nome e senha.
 - Locador: Herda de Usuario, mapeada para locadores, com atributo adicional telefone.
 - Locatario: Herda de Usuario, mapeada para locatarios, com atributos adicionais telefone, localizacaoQuadra, tipoQuadra e horariosDisponiveis (temporários, a serem movidos para Quadra e Horario).
 - Database: Gerencia a conexão com o banco SQLite usando ORMLite.
 - UsuarioRepositorio: Realiza operações CRUD (atualmente implementa create, buscarPorNumero, autenticar; métodos update, delete, loadFromId, loadAll estão planejados).
-- Controladores: CadastroController, DashboardLocadorController, DashboardLocatarioController e LoginController gerenciam a lógica de interação com a interface JavaFX.
+
+-Controller
+- CadastroController
+- DashboardLocadorController
+- DashboardLocatarioController
+- LoginController: Controla autenticação e navegação para cadastro ou dashboards.
 
 ## 7. Testes e Processo de Desenvolvimento
 
