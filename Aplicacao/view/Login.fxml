@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" spacing="15.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" spacing="15.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
       <Label text="Aluguel de Quadras">
          <font>
@@ -17,10 +17,10 @@
       </Label>
       <VBox alignment="CENTER_LEFT" maxWidth="250.0" spacing="5.0">
          <children>
-            <Label text="Usuário (Número):" />
-            <TextField fx:id="txtNumero" />
+            <Label text="Usuário:" />
+            <TextField fx:id="txtNumero" promptText="CPF / Celular" />
             <Label text="Senha:" />
-            <PasswordField fx:id="txtSenha" />
+            <PasswordField fx:id="txtSenha" promptText="Senha" />
          </children>
       </VBox>
       <Button mnemonicParsing="false" onAction="#handleLogin" prefWidth="100.0" text="Entrar" />

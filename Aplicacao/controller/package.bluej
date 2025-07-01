@@ -1,15 +1,15 @@
 #BlueJ package file
-dependency1.from=CadastroQuadraController
+dependency1.from=LoginController
 dependency1.to=DashboardLocadorController
 dependency1.type=UsesDependency
-dependency2.from=DashboardLocadorController
-dependency2.to=CadastroQuadraController
+dependency2.from=LoginController
+dependency2.to=DashboardLocatarioController
 dependency2.type=UsesDependency
-dependency3.from=LoginController
+dependency3.from=CadastroQuadraController
 dependency3.to=DashboardLocadorController
 dependency3.type=UsesDependency
-dependency4.from=LoginController
-dependency4.to=DashboardLocatarioController
+dependency4.from=DashboardLocadorController
+dependency4.to=CadastroQuadraController
 dependency4.type=UsesDependency
 objectbench.height=88
 objectbench.width=919
