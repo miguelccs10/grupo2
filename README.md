@@ -25,9 +25,9 @@ Documentar o desenvolvimento do projeto, incluindo modelagem, implementação e 
 ### Membros da equipe:
 
 - [Clara](https://github.com/claraleones): Gerenciamento/Documentação.
-- [Khalil](https://github.com/Khalielly): Back-end.  
+- [Khalil](https://github.com/Khalielly): Back-end.
+- [Miguel](https://github.com/miguelccs10): front-end  
 - [Diniz](https://github.com/dinizanjos): Documentação.  
-- [Miguel](https://github.com/miguelccs10): front-end
 - [Heitor](https://github.com/Heitortxl): Validação e Testes.
   
 ---
