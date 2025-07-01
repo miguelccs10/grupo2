@@ -16,6 +16,11 @@ Minhas contribuições, combinadas com o trabalho em equipe, resultaram em um si
 
 ## Diniz
 
+Durante o desenvolvimento do projeto de Programação Orientada a Objetos (POO), cuja proposta consistia na criação de um aplicativo para locação de quadras esportivas, fui responsável pela elaboração da documentação do sistema. Essa atividade teve como objetivo principal registrar de forma clara e estruturada as diretrizes iniciais do projeto, servindo como base para o trabalho dos demais integrantes do grupo.
+O documento elaborado inicialmente reuniu informações fundamentais, tais como os objetivos do sistema, a proposta de funcionamento, a estrutura básica das classes, além de sugestões de funcionalidades futuras a serem implementadas. Esse material serviu como referência comum entre os membros, contribuindo significativamente para a organização do projeto e para o alinhamento das etapas de desenvolvimento.
+A documentação também exerceu um papel essencial na comunicação interna do grupo, permitindo que todos tivessem uma visão abrangente e atualizada do andamento do projeto. Após sua criação, o documento foi disponibilizado de forma colaborativa, possibilitando que cada integrante adicionasse descrições mais específicas de suas respectivas contribuições. Isso garantiu maior precisão e completude ao material final.
+Portanto, a documentação não apenas auxiliou na coordenação e planejamento das atividades, mas também forneceu um norte técnico para as decisões tomadas ao longo do processo de desenvolvimento, consolidando-se como uma ferramenta estratégica dentro do projeto.
+
 ## Heitor
 
 ## Miguel
