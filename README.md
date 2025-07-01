@@ -24,11 +24,12 @@ Documentar o desenvolvimento do projeto, incluindo modelagem, implementação e 
 
 ### Membros da equipe:
 
-- [Diniz](https://github.com/dinizanjos): Documentação.  
+- [Clara](https://github.com/claraleones): Gerenciamento/Documentação.
 - [Khalil](https://github.com/Khalielly): Back-end.  
-- [Heitor](https://github.com/Heitortxl): Validação e Testes.  
-- [Miguel](https://github.com/miguelccs10) e [Clara](https://github.com/claraleones): front-end / gerenciamento
-
+- [Diniz](https://github.com/dinizanjos): Documentação.  
+- [Miguel](https://github.com/miguelccs10): front-end
+- [Heitor](https://github.com/Heitortxl): Validação e Testes.
+  
 ---
 
 ### Modelagem inicial:
