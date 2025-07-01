@@ -185,21 +185,20 @@ Locador --> UC3
 Locador --> UC4
 @enduml
 ```
-## Segunda versão das telas:
-<img src="./docs/img_Readme/Login-v2.png" width="550">
-
+## Telas finais da aplicação:
 |       |       |
 |-------|-------|
-|<img src="./docs/img_Readme/cadastro_locador-v2.png" width="600">|<img src="./docs/img_Readme/cadastro_locatario-v2.png" width="600">|
-|<img src="./docs/img_Readme/dashboard_locador.png" width="600">|<img src="./docs/img_Readme/dashboard_locatario.png" width="600">|
+|<img src="assets/Login-v3.png" width="550">|<img src="assets/Cadastro-v3.png" width="500">|
+|<img src="assets/DashBoardLocador-v3.png" width="600">|<img src="assets/DashboardLocatario-v3.png" width="600">|
+|<img src="assets/CadastroQuadra-v3.png" width="600">|<img src="assets/quadraReservada.png" width="600">|
 
 ---
 
 ## - Modelagem inicial no BlueJ;
 Formatação inicial do Model, View e Controller:
-![ModelagemBlueJ](docs/img_Readme/Tela_MVC.png)
+![ModelagemBlueJ](assets/Tela_MVC.png)
 Modelagem inicial do Model:
-![ModelagemBlueJ](docs/img_Readme/Tela_BlueJ_Classes.png)
+![ModelagemBlueJ](assets/Tela_BlueJ_Classes.png)
 
 ### - Classe Usuario;
 ```
