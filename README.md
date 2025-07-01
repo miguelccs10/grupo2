@@ -66,6 +66,15 @@ Diagrama de casos de uso final:
 
 ![Diagrama UML](https://www.plantuml.com/plantuml/png/bP51JWCn34NtEOMNi2W7G5LLgOKL6ufWRoPkQp69AoSPeTw60t2ANeoC55Lj4nQpcyZ_VN_FNuQ86fFhJVXYVq151qwyT7iLHn0raJ7OHL5uaGwjwCKheopb_SOXaaDZYWncimNSFUEHHksE_Rqv8_NicbgXnH0L5Tv3ElraeeBRagR7QqAhU3iM7r8VytX3WNJ0KAtuu92mv-FP8i2Qmq7ywNSWhlKRAkhYsCZiE-el1URg9y33k3MRsAnPALdo7MFU18ymdzDt96yN2zEu_HfTevLRg4fN45BUSeTQJkDF7ZqitU2cr3iUqivOASvHgjc_Eutn4WcKT_i8icsL2F3am58WFqW_i2CVnP2tC98rNxKypQ4kTI9VEf_0B_DdSlqV)
 
+---
+
+## Telas iniciais:
+<img src="assets/Tela_deCadastro.png" width="600">
+
+|       |       |       |
+|-------|-------|-------|
+|<img src="assets/Tela%20Aluguel%20de%20quadras.png" width="600">|<img src="assets/Tela Aluguel de quadras (2).png" width="600">|<img src="assets/Tela Aluguel de quadras (3).png" width="600">|
+
 ## Telas finais da aplicação:
 |       |       |
 |-------|-------|
