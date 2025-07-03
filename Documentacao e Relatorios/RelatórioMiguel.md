@@ -4,11 +4,9 @@
 
 **1. Resumo de Atuação e Objetivos**
 
-No projeto, fui designado para as funções de Desenvolvedor Front-end e Gerente de Projeto Técnico. Meu objetivo principal foi traduzir os requisitos do sistema em uma aplicação funcional, construindo desde as telas de interação com o usuário (frontend) até a lógica de manipulação de dados e regras de negócio (backend). Meu escopo de trabalho envolveu a criação e manutenção da interface com o usuário, garantindo uma experiência funcional e intuitiva, e simultaneamente, a gestão do repositório, documentação e a integração do trabalho da equipe para assegurar a coesão e o progresso do projeto.
+No projeto, fui designado para as funções de Desenvolvedor Front-end e também auxiliei no gerenciamento. Meu objetivo principal foi traduzir os requisitos do sistema em uma aplicação funcional, construindo desde as telas de interação com o usuário (frontend) até parte da lógica de manipulação de dados(backend). Meu escopo de trabalho envolveu a criação e manutenção da interface com o usuário, garantindo uma experiência funcional e intuitiva, e simultaneamente, a gestão do repositório, documentação e a integração do trabalho da equipe para assegurar a coesão e o progresso do projeto.
 
 **2. Detalhamento das Contribuições Técnicas**
-
-Meu trabalho pode ser dividido em três grandes frentes:
 
 * **Estruturação da Aplicação e Lógica de Negócio:** Iniciei o desenvolvimento com o upload das classes já existentes de modelo (`e97806a`) e a lógica para reserva de quadras, onde também realizei a correção de bugs iniciais (`fa7bc07`). Um dos desafios foi ajustar a rotina de autenticação para garantir que cada tipo de usuário fosse direcionado ao seu dashboard correto, trabalho refletido no commit `659513f`.
 
