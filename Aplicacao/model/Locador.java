@@ -30,6 +30,6 @@ public class Locador extends Usuario {
 
     @Override
     public String toString() {
-        return "Locador{id=" + getId() + ", numero='" + getNumero() + "', nome='" + getNome() + "', telefone='" + telefone + "', senha='[PROTEGIDA]'}";
+        return this.nome;
     }
 }
