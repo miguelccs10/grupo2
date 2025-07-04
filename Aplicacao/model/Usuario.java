@@ -13,7 +13,7 @@ public class Usuario {
     private String numero;
 
     @DatabaseField(dataType = DataType.STRING, canBeNull = false)
-    private String nome;
+    public String nome;
 
     @DatabaseField(dataType = DataType.STRING, canBeNull = false)
     private String senha;
