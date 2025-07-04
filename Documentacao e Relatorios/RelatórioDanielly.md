@@ -24,11 +24,11 @@ No início do projeto, realizamos uma reunião para decidir a **divisão das tar
 
 | Membro     | Função/Responsabilidade                              |
 |------------|------------------------------------------------------|
-| [Danielly](https://github.com/Khalielly):   | Líder do projeto, responsável pelo **back-end**, **Modelagem - Diagrama de Classes**, parte da **documentação** e **organização do repositório** |
+| [Danielly](https://github.com/Khalielly)  | Líder do projeto, responsável pelo **back-end**, **Modelagem - Diagrama de Classes**, parte da **documentação** e **organização do repositório** |
 | [Miguel](https://github.com/miguelccs10)     | Desenvolvimento do **front-end** da aplicação        |
 | [Clara](https://github.com/claraleones)      | Inicialmente alocada no front-end, passou a cuidar da **documentação geral** e do **gerenciamento do projeto** |
 | [Heitor](https://github.com/Heitortxl)     | Auxílio na **validação e testes**                    |
-| [Diniz](https://github.com/dinizanjos):     | Apoio na **documentação**                            |
+| [Diniz](https://github.com/dinizanjos)   | Apoio na **documentação**                            |
 
 
 ## 4. Modelagem e Implementação

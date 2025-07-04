@@ -442,4 +442,10 @@ public class Database {
 }
 ```
 
+## - Modelagem Final no BlueJ;
+Formatação inicial do Model, View e Controller:
+![ModelagemBlueJ](/assets/aplicacao_final_MVC.png)
+Modelagem inicial do Model:
+![ModelagemBlueJ](/assets/model_final%20(1).png)
+
 
