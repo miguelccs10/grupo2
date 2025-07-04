@@ -443,153 +443,59 @@ public class Database {
 ```
 
 ## - Modelagem Final no BlueJ;
+
+## 1. Estrutura Geral
+
+O projeto foi reorganizado conforme o padrão arquitetural **MVC (Model-View-Controller)**. A seguir, a descrição de cada camada, suas funções e os arquivos associados.
 Formatação inicial do Model, View e Controller:
 ![ModelagemBlueJ](/assets/aplicacao_final_MVC.png)
-Modelagem inicial do Model:
+
+## 2. Camadas e Arquivos
+
+| Camada     | Pasta         | Arquivos                                                                 |
+|------------|---------------|--------------------------------------------------------------------------|
+| Model      | `model/`      | `Usuario.java`, `Locador.java`, `Locatario.java`, `Quadra.java`, `Reserva.java` |
+|            |               | `UsuarioRepositorio.java`, `QuadraRepositorio.java`, `ReservaRepositorio.java` |
+|            |               | `Database.java`                                                          |
+| Controller | `controller/` | `LoginController.java`, `CadastroController.java`, `CadastroQuadraController.java` |
+|            |               | `DashboardLocadorController.java`, `DashboardLocatarioController.java`  |
+| View       | `view/`       | (Nenhum arquivo Java implementado até o momento)                        |
+
+## 3. Detalhamento por Camada
+
+### Model (`model/`)
 ![ModelagemBlueJ](/assets/model_final%20(1).png)
 
-### - Classe Usuario;
-```
-package model;
+A camada `model` contém as classes que representam as **entidades principais do sistema** e os repositórios responsáveis pelo **acesso ao banco de dados (SQLite)**.
 
-import com.j256.ormlite.table.DatabaseTable;
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.field.DataType;
+- `Usuario.java`: Classe genérica de usuário.
+- `Locador.java` e `Locatario.java`: Subclasses de `Usuario`, com comportamentos distintos.
+- `Quadra.java`: Representa os dados das quadras cadastradas.
+- `Reserva.java`: Armazena informações de reservas feitas pelos usuários.
+- `UsuarioRepositorio.java`, `QuadraRepositorio.java`, `ReservaRepositorio.java`: Responsáveis pelas operações CRUD no banco de dados.
+- `Database.java`: Classe responsável por gerenciar a conexão com o banco SQLite.
 
-@DatabaseTable(tableName = "usuarios")
-public class Usuario {
-    @DatabaseField(generatedId = true)
-    private int id;
+### Controller (`controller/`)
+![ModelagemBlueJ](/assets/controller_final(2).png)
 
-    @DatabaseField(dataType = DataType.STRING, canBeNull = false)
-    private String numero;
+A camada de controle gerencia os **fluxos de dados entre o model e a view**, controlando a lógica da aplicação.
 
-    @DatabaseField(dataType = DataType.STRING, canBeNull = false)
-    private String nome;
+- `LoginController.java`: Lida com o processo de autenticação de usuários.
+- `CadastroController.java`: Gerencia o cadastro de usuários.
+- `CadastroQuadraController.java`: Responsável pelo cadastro de quadras.
+- `DashboardLocadorController.java`: Controla a dashboard do usuário com perfil de locador.
+- `DashboardLocatarioController.java`: Controla a dashboard do usuário com perfil de locatário.
 
-    @DatabaseField(dataType = DataType.STRING, canBeNull = false)
-    private String senha;
+### View (`view/`)
 
-    public Usuario() {
-        // Construtor padrão necessário para ORMLite
-    }
+A camada `view` está reservada para a implementação futura da **interface gráfica**. Atualmente, não possui arquivos `.java`, mas será utilizada em casos de integração com JavaFX, Swing ou outros frameworks de visualização.
 
-    public Usuario(String numero, String nome, String senha) {
-        this.numero = numero;
-        this.nome = nome;
-        this.senha = senha;
-    }
+## 4. Considerações
 
-    // GET e SET methods
-    public int getId() {
-        return this.id;
-    }
+O uso do padrão MVC proporciona:
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNumero() {
-        return this.numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
-    public String getNome() {
-        return this.nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getSenha() {
-        return this.senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    @Override
-    public String toString() {
-        return "Usuario{id=" + id + ", numero='" + numero + "', nome='" + nome + "', senha='[PROTEGIDA]'}";
-    }
-}
-```
-
-### - Classe Locador;
-```
+- Separação clara de responsabilidades;
+- Facilidade de manutenção e testes;
+- Maior escalabilidade para futuras funcionalidades (como relatórios, dashboards e melhorias na interface).
 
 
-package model;
-
-import com.j256.ormlite.table.DatabaseTable;
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.field.DataType;
-
-@DatabaseTable(tableName = "locadores")
-public class Locador extends Usuario {
-    @DatabaseField(dataType = DataType.STRING)
-    private String telefone;
-
-    public Locador() {
-        // Construtor padrão necessário para ORMLite
-    }
-
-    public Locador(String numero, String nome, String senha, String telefone) {
-        super(numero, nome, senha);
-        this.telefone = telefone;
-    }
-
-    public String getTelefone() {
-        return this.telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    @Override
-    public String toString() {
-        return "Locador{id=" + getId() + ", numero='" + getNumero() + "', nome='" + getNome() + "', telefone='" + telefone + "', senha='[PROTEGIDA]'}";
-    }
-}
-
-```
-package model;
-
-import com.j256.ormlite.table.DatabaseTable;
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.field.DataType;
-
-@DatabaseTable(tableName = "locatarios")
-public class Locatario extends Usuario {
-    @DatabaseField(dataType = DataType.STRING)
-    private String telefone;
-
-    public Locatario() {
-        // Construtor padrão necessário para ORMLite
-    }
-
-    public Locatario(String numero, String nome, String senha, String telefone) {
-        super(numero, nome, senha);
-        this.telefone = telefone;
-    }
-
-    public String getTelefone() {
-        return this.telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    @Override
-    public String toString() {
-        return "Locatario{id=" + getId() + ", numero='" + getNumero() + "', nome='" + getNome() + "', telefone='" + telefone + "'}";
-    }
-}
-```
