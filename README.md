@@ -442,4 +442,60 @@ public class Database {
 }
 ```
 
+## - Modelagem Final no BlueJ;
+
+## 1. Estrutura Geral
+
+O projeto foi reorganizado conforme o padrão arquitetural **MVC (Model-View-Controller)**. A seguir, a descrição de cada camada, suas funções e os arquivos associados.
+Formatação inicial do Model, View e Controller:
+![ModelagemBlueJ](/assets/aplicacao_final_MVC.png)
+
+## 2. Camadas e Arquivos
+
+| Camada     | Pasta         | Arquivos                                                                 |
+|------------|---------------|--------------------------------------------------------------------------|
+| Model      | `model/`      | `Usuario.java`, `Locador.java`, `Locatario.java`, `Quadra.java`, `Reserva.java` |
+|            |               | `UsuarioRepositorio.java`, `QuadraRepositorio.java`, `ReservaRepositorio.java` |
+|            |               | `Database.java`                                                          |
+| Controller | `controller/` | `LoginController.java`, `CadastroController.java`, `CadastroQuadraController.java` |
+|            |               | `DashboardLocadorController.java`, `DashboardLocatarioController.java`  |
+| View       | `view/`       | (Nenhum arquivo Java implementado até o momento)                        |
+
+## 3. Detalhamento por Camada
+
+### Model (`model/`)
+![ModelagemBlueJ](/assets/model_final%20(1).png)
+
+A camada `model` contém as classes que representam as **entidades principais do sistema** e os repositórios responsáveis pelo **acesso ao banco de dados (SQLite)**.
+
+- `Usuario.java`: Classe genérica de usuário.
+- `Locador.java` e `Locatario.java`: Subclasses de `Usuario`, com comportamentos distintos.
+- `Quadra.java`: Representa os dados das quadras cadastradas.
+- `Reserva.java`: Armazena informações de reservas feitas pelos usuários.
+- `UsuarioRepositorio.java`, `QuadraRepositorio.java`, `ReservaRepositorio.java`: Responsáveis pelas operações CRUD no banco de dados.
+- `Database.java`: Classe responsável por gerenciar a conexão com o banco SQLite.
+
+### Controller (`controller/`)
+![ModelagemBlueJ](/assets/controller_final(2).png)
+
+A camada de controle gerencia os **fluxos de dados entre o model e a view**, controlando a lógica da aplicação.
+
+- `LoginController.java`: Lida com o processo de autenticação de usuários.
+- `CadastroController.java`: Gerencia o cadastro de usuários.
+- `CadastroQuadraController.java`: Responsável pelo cadastro de quadras.
+- `DashboardLocadorController.java`: Controla a dashboard do usuário com perfil de locador.
+- `DashboardLocatarioController.java`: Controla a dashboard do usuário com perfil de locatário.
+
+### View (`view/`)
+
+A camada `view` está reservada para a implementação futura da **interface gráfica**. Atualmente, não possui arquivos `.java`, mas será utilizada em casos de integração com JavaFX, Swing ou outros frameworks de visualização.
+
+## 4. Considerações
+
+O uso do padrão MVC proporciona:
+
+- Separação clara de responsabilidades;
+- Facilidade de manutenção e testes;
+- Maior escalabilidade para futuras funcionalidades (como relatórios, dashboards e melhorias na interface).
+
 
